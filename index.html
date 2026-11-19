@@ -1019,7 +1019,7 @@ deck.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();
   scenes.forEach(scene=>{
    const b=scene.node.getBoundingClientRect();
    scene.rect={x:b.left+b.width*(scene.kind==='sphere'?.53:.5),y:b.top+scrollY+b.height*.5,w:b.width,h:b.height};
-   scene.at=scene.kind==='sphere'?0:Math.max(0,scene.rect.y-height*.56);
+   scene.at=scene.kind==='sphere'?0:Math.max(0,scene.rect.y-height*.72);
   });
   scenes.sort((a,b)=>a.at-b.at);
  }
@@ -1068,7 +1068,7 @@ deck.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();
   const blend=ease(progress),burst=Math.pow(Math.sin(Math.PI*progress),1.1);
   // At the crest of the transition particles form a dispersed cloud. The cloud
   // stays faint behind copy; full color returns inside the illustration slot.
-  const localFade=1-burst*.87;
+  const localFade=1-Math.pow(burst,.6)*.90;
   particles.forEach((p,i)=>{
    const a=projected(from,p,i,time),b=projected(to,p,i,time);
    const drift=reducedMotion?0:Math.sin(time*.0005+p.phase)*.65;
