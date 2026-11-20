@@ -991,6 +991,7 @@ deck.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();
   const u=Math.acos(2*random()-1),v=random()*Math.PI*2;
   return {x:Math.sin(u)*Math.cos(v),y:Math.cos(u)*.86,z:Math.sin(u)*Math.sin(v),
    sx:(random()-.5)*1.9,sy:(random()-.5)*1.8,phase:random()*Math.PI*2,
+   cloudX:Math.sqrt(-2*Math.log(Math.max(.0001,random())))*Math.cos(random()*Math.PI*2),cloudY:Math.sqrt(-2*Math.log(Math.max(.0001,random())))*Math.cos(random()*Math.PI*2),
    angle:random()*Math.PI*2,size:.7+random()*1.5,color:palette[Math.floor(random()*palette.length)]};
  });
  const glyphs=new Map();
@@ -1052,7 +1053,7 @@ deck.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();
   if(scene.kind==='scatter'){
    const driftX=Math.sin(time*.00025+p.phase)*4;
    const driftY=Math.cos(time*.0002+p.phase)*3;
-   return{x:b.x+p.sx*b.w*.48+driftX,y:b.y-scrollY+p.sy*b.h*.45+driftY,alpha:index%3===0?.45+Math.sin(p.phase)*.15:0};
+   return{x:b.x+Math.tanh(p.cloudX*.52)*b.w*.55+driftX,y:b.y-scrollY+Math.tanh(p.cloudY*.52)*b.h*.46+driftY,alpha:index%3===0?.55+Math.sin(p.phase)*.15:0};
   }
   const q=scene.shape.points[index];
   const scale=Math.min(b.w*.94,b.h*.84/scene.shape.aspect);
