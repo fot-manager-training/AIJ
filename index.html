@@ -1073,7 +1073,7 @@ deck.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();
    // The dispersed pose fills the viewport and stays continuous between chapters.
    const fx=p.fx*width+Math.sin(time*.00016+p.phase)*12,fy=p.fy*height+Math.cos(time*.00013+p.phase)*10;
    const x=fx+(q.x-fx)*amount,y=fy+(q.y-fy)*amount;
-   const alpha=.3+(q.alpha-.3)*amount,size=p.size+(q.size-p.size)*amount;
+   const alpha=.012+(q.alpha-.012)*Math.pow(amount,3),size=p.size+(q.size-p.size)*amount;
    triangle(x,y,size,p.angle+time*.00005,p.color,alpha);
   });clearPlot();ctx.globalAlpha=1;
  }
