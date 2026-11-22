@@ -769,7 +769,46 @@ button,a,summary{-webkit-tap-highlight-color:rgba(128,82,255,.18);touch-action:m
 @media(max-width:520px){.hero h1{font-size:clamp(43px,11.2vw,59px);line-height:1.08}.hero{padding-top:48px;min-height:max(820px,calc(100svh - 74px))}.hero-art{top:360px;height:460px}.hero-intro{max-width:340px;font-size:16px}.hero-bottom{gap:15px}.aij-stamp{width:35px;height:45px;font-size:15px;border-radius:11px}.aij-stamp>span{font-size:8px}.hero-author{max-width:158px}.hero-author-name{font-size:10px}.header .brand{font-size:9px;max-width:205px}.header .brand small{font-size:7px;letter-spacing:.05em}.quarter-tab .q{font-size:22px}.quarter-tabs{gap:12px}.quarter-tab .period{font-size:9px}.portfolio-brands{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}.portfolio-brand{min-height:100px}.portfolio-brand small{font-size:9px}.portfolio-brand .portfolio-logo{max-width:135px;height:40px}.portfolio-brand .aij-logo-original{max-width:55px}.project-filters{gap:5px 15px}.filter-button{font-size:11px}.project-search{max-width:none}.client-name{font-size:27px}.project-metrics{gap:22px}.project-metrics b{font-size:28px}.project-metrics span{font-size:11px}.nomination-split{gap:25px}.nomination-split b{font-size:50px}.learning-count{font-size:60px}.a2a-cases b{font-size:16px}.system-big{font-size:106px}.system-big span{font-size:32px}.footer-name{font-size:22px}.deck-header>span{max-width:220px;line-height:1.5}}
 @media(max-width:360px){.header .brand{font-size:8px}.header .brand small{font-size:6px}.hero h1{font-size:40px}.hero-author{max-width:140px}.hero-bottom{gap:12px}.hero-author-name{font-size:9px}.project-metrics{grid-template-columns:1fr}.quarter-tab .q{font-size:19px}}
 @media print{.project-discovery,.project-source,.empty-state,.text-project-link{display:none!important}.portfolio-brands{grid-template-columns:repeat(6,1fr);gap:12px}.portfolio-brand{min-height:60px}.portfolio-logo{max-width:90px;height:30px!important}.portfolio-brand small{font-size:6pt}.client-body{break-inside:avoid}.project-metrics b{color:#111;font-size:18pt}.project-metrics span{font-size:8pt;color:#444}.tech-tags span{color:#444;border-color:#bbb}.qualitative-effect{color:#111!important}.nomination-split b{font-size:35pt}.project-effect-note{color:#444!important}.a2a-cases b{font-size:12pt;color:#111}.aij-stamp{display:none}.hero h1{font-size:44pt}.original-deck{border-color:#aaa}.project-metrics{gap:15px}}
-</style><style>.aij-official-logo{width:53px;height:27px;object-fit:contain;display:block;flex-shrink:0}@media(max-width:520px){.aij-official-logo{width:44px;height:23px}}</style>
+</style><style>.aij-official-logo{width:53px;height:27px;object-fit:contain;display:block;flex-shrink:0}@media(max-width:520px){.aij-official-logo{width:44px;height:23px}}</style><style id="portfolio-ribbons-style">
+.portfolio-ribbons{display:flex;flex-direction:column;gap:20px;overflow:hidden;padding:6px 0 12px}
+.portfolio-lane{width:100%;overflow:hidden}
+.portfolio-track{display:flex;width:max-content;animation:portfolio-ribbon 48s linear infinite;will-change:transform}
+.portfolio-lane-reverse .portfolio-track{animation-direction:reverse}
+.portfolio-group{display:flex;flex-shrink:0;gap:20px;padding-right:20px}
+.portfolio-ribbons .portfolio-brand{flex:0 0 264px;width:264px;min-height:172px;padding:26px 22px 22px;gap:20px;border:0;border-radius:0;background:transparent;color:#e7e7ee;transition:opacity .25s}
+.portfolio-ribbons .portfolio-brand:hover{transform:none;background:transparent;box-shadow:none;opacity:.85}
+.portfolio-ribbons .portfolio-brand:focus-visible{outline:2px solid #8052ff;outline-offset:-4px}
+.portfolio-ribbons .portfolio-brand .portfolio-logo{width:208px;max-width:208px;height:88px;filter:none;mix-blend-mode:normal;opacity:1;object-fit:contain}
+.portfolio-ribbons .portfolio-brand .aij-logo-paper{filter:invert(1) hue-rotate(180deg);mix-blend-mode:screen}
+.portfolio-ribbons .portfolio-brand .aij-logo-original{max-width:108px}
+.portfolio-ribbons .portfolio-brand .portfolio-logo[src="assets/element.png"]{background:transparent;border-radius:0;padding:0}
+.portfolio-ribbons .portfolio-brand .wordmark{width:208px;height:88px;font-size:26px!important;color:#e7e7ee}
+.portfolio-ribbons .portfolio-brand small{max-width:220px;font-size:13px;line-height:1.4;color:#94949f;font-weight:400}
+.portfolio-lane:hover .portfolio-track,.portfolio-lane:focus-within .portfolio-track{animation-play-state:paused}
+@keyframes portfolio-ribbon{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:520px){
+.portfolio-ribbons{gap:14px}
+.portfolio-group{gap:14px;padding-right:14px}
+.portfolio-ribbons .portfolio-brand{flex-basis:224px;width:224px;min-height:156px;padding:22px 16px;gap:16px}
+.portfolio-ribbons .portfolio-brand .portfolio-logo,.portfolio-ribbons .portfolio-brand .wordmark{width:190px;max-width:190px;height:78px}
+.portfolio-ribbons .portfolio-brand .aij-logo-original{max-width:96px}
+.portfolio-ribbons .portfolio-brand small{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+.portfolio-lane{overflow-x:auto}
+.portfolio-track{animation:none;transform:none;will-change:auto}
+.portfolio-group[aria-hidden="true"]{display:none}
+}
+@media print{
+.portfolio-ribbons{display:block;overflow:visible}
+.portfolio-lane{overflow:visible}
+.portfolio-track{display:block;animation:none;transform:none}
+.portfolio-group{display:grid;grid-template-columns:repeat(3,1fr);padding:0;gap:12px;margin-bottom:12px}
+.portfolio-group[aria-hidden="true"]{display:none}
+.portfolio-ribbons .portfolio-brand{width:auto;min-height:110px;break-inside:avoid}
+.portfolio-ribbons .portfolio-brand .portfolio-logo{width:100%;max-width:150px;height:60px!important}
+}
+.portfolio-ribbons .portfolio-brand .portfolio-logo[src="assets/peterhof.png"],.portfolio-ribbons .portfolio-brand .portfolio-logo[src="assets/pulkovo.png"]{filter:brightness(2.6) saturate(1.15)}.portfolio-ribbons .portfolio-brand .portfolio-logo[src="assets/legenda.png"]{filter:invert(1);mix-blend-mode:screen}.portfolio-ribbons .portfolio-brand .portfolio-logo[src="assets/yuzhny.png"]{filter:brightness(1.3)}@media print{.portfolio-ribbons .portfolio-brand .portfolio-logo{filter:none!important;mix-blend-mode:normal!important}.portfolio-ribbons .portfolio-brand small,.portfolio-ribbons .portfolio-brand .wordmark{color:#111}}</style>
 <style id="press-style">
 .press-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .press-card{--press-accent:#bba4ff;min-width:0;display:flex;flex-direction:column;padding:32px;border:1px solid #29252e;border-radius:24px;background:linear-gradient(145deg,rgba(128,82,255,.055),transparent 65%);transition:border-color .2s}
@@ -921,78 +960,15 @@ body>#constellation{position:fixed;inset:0;display:block;width:100vw;height:100d
 }
 .aij-highlight:hover .highlight-action { text-decoration: underline; text-underline-offset: 4px; }
 
-.case-controls { display: flex; gap: 8px; flex: 0 0 auto; }
-.case-controls[hidden] { display: none; }
-.case-controls button {
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border: 1px solid #393145;
-  border-radius: 50%;
-  font-size: 29px;
-  line-height: 1;
-  color: #f6efff;
-}
-.case-controls button:disabled { opacity: .35; cursor: default; }
-.case-controls button:hover:enabled { border-color: #a584ff; }
-.case-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min(230px, 73%);
-  gap: 12px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-color: #6a548f #141217;
-  scrollbar-width: thin;
-  overscroll-behavior-x: contain;
-  list-style: none;
-  margin: 0;
-  padding: 3px 0 13px;
-}
-.case-track > li::before,
 .aij-day li::before,
 .video-placeholders li::before,
 .signing-list li::before { content: none; }
-.case-track > li,
 .aij-day li,
 .video-placeholders li,
 .signing-list li { margin-top: 0; }
 .signing-list li { padding-left: 0; }
+#cases .portfolio-ribbons { margin-top: 16px; }
 
-.case-tile {
-  display: flex;
-  min-width: 0;
-  padding: 12px;
-  border: 1px solid #2c2632;
-  border-radius: 16px;
-  background: #0e0b11;
-  scroll-snap-align: start;
-}
-.case-tile:hover, .case-tile:focus-within { border-color: #9775dc; }
-.case-open {
-  display: grid;
-  grid-template-rows: 64px 1fr auto;
-  align-items: center;
-  justify-items: center;
-  width: 100%;
-  gap: 8px;
-  padding: 10px 4px;
-  text-align: center;
-}
-.case-open strong { font-size: 16px; font-weight: 400; line-height: 1.2; }
-.case-open > span:last-child { font-size: 14px; color: #cfbaff; }
-.case-logo {
-  display: block;
-  width: 148px;
-  max-width: 100%;
-  height: 64px;
-  object-fit: contain;
-}
-.case-logo[src$="peterhof.png"], .case-logo[src$="pulkovo.png"] { filter: brightness(2.6) saturate(1.15); }
-.case-logo[src$="legenda.png"] { filter: invert(1); mix-blend-mode: screen; }
-.case-logo[src$="yuzhny.png"] { filter: brightness(1.3); }
-.case-wordmark { font-size: 20px; letter-spacing: -.03em; }
 .aij-text-link {
   display: inline-flex;
   align-items: center;
@@ -1133,7 +1109,6 @@ body>#constellation{position:fixed;inset:0;display:block;width:100vw;height:100d
   .hero-schedule { font-size: 14px; }
   .aij-section-head { flex-wrap: wrap; }
   .aij-section-head h2 { flex: 1 1 auto; }
-  .case-track { grid-auto-columns: 64%; }
   .aij-panel { border-radius: 20px; }
   .panel-overview, .panel-people, .aij-formats { grid-template-columns: 1fr; }
   .panel-people { gap: 12px; }
@@ -1141,10 +1116,9 @@ body>#constellation{position:fixed;inset:0;display:block;width:100vw;height:100d
 }
 @media print {
   .hero { min-height: 0; padding-block: 15px; }
-  .case-controls, .hero-schedule { display: none !important; }
-  .case-track { display: grid; grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); overflow: visible; }
-  .aij-highlight, .case-tile, .aij-panel, .panel-speaker, .aij-day, .aij-formats > div { background: #fff; border-color: #bbb; }
-  .aij-highlight *, .case-tile *, .aij-panel *, .aij-day *, .aij-formats * { color: #111 !important; }
+  .hero-schedule { display: none !important; }
+  .aij-highlight, .aij-panel, .panel-speaker, .aij-day, .aij-formats > div { background: #fff; border-color: #bbb; }
+  .aij-highlight *, .aij-panel *, .aij-day *, .aij-formats * { color: #111 !important; }
 }
 </style>
 </head><body id="top"><div class="progress" aria-hidden="true"></div><header class="header wrap">
@@ -1170,33 +1144,8 @@ body>#constellation{position:fixed;inset:0;display:block;width:100vw;height:100d
   </div>
 </section>
 <section class="section wrap" id="cases" aria-labelledby="cases-title">
-  <div class="aij-section-head">
-    <h2 class="aij-heading" id="cases-title">Карусель проектов</h2>
-    <div class="case-controls" aria-label="Управление каруселью" hidden>
-      <button type="button" data-case-step="-1" aria-label="Предыдущие проекты" aria-controls="case-track">‹</button>
-      <button type="button" data-case-step="1" aria-label="Следующие проекты" aria-controls="case-track">›</button>
-    </div>
-  </div>
-  <ul class="case-track" id="case-track" aria-label="Проекты, прошедшие на конкурс" tabindex="0">
-      <li class="case-tile"><a class="case-open" href="#project-eirc"><img class="case-logo" src="assets/eirc.jpeg" alt="" loading="lazy" decoding="async"><strong>ЕИРЦ</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-peterhof"><img class="case-logo" src="assets/peterhof.png" alt="" loading="lazy" decoding="async"><strong>ГМЗ «Петергоф»</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-element"><img class="case-logo" src="assets/element.png" alt="" loading="lazy" decoding="async"><strong>Элемент</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-aks"><img class="case-logo" src="assets/aks.jpeg" alt="" loading="lazy" decoding="async"><strong>АКС</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-vma"><img class="case-logo" src="assets/vma.png" alt="" loading="lazy" decoding="async"><strong>ВМА</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-obf"><img class="case-logo" src="assets/obf.jpeg" alt="" loading="lazy" decoding="async"><strong>ОБФ</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-vyborzhets"><img class="case-logo" src="assets/vyborzhets.jpeg" alt="" loading="lazy" decoding="async"><strong>Выборжец</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-pulkovo"><img class="case-logo" src="assets/pulkovo.png" alt="" loading="lazy" decoding="async"><strong>Пулково</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-yuzhny"><img class="case-logo" src="assets/yuzhny.png" alt="" loading="lazy" decoding="async"><strong>Город-спутник Южный</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-innospector"><span class="case-wordmark" aria-hidden="true">Инноспектор</span><strong>Инноспектор</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-dodo"><img class="case-logo" src="assets/dodo.jpeg" alt="" loading="lazy" decoding="async"><strong>Додо</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-ati"><img class="case-logo" src="assets/ati.png" alt="" loading="lazy" decoding="async"><strong>ATI.SU</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-grunwald"><img class="case-logo" src="assets/grunwald.png" alt="" loading="lazy" decoding="async"><strong>Грюнвальд</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-hrlink"><img class="case-logo" src="assets/hrlink.png" alt="" loading="lazy" decoding="async"><strong>HRlink</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-kant"><img class="case-logo" src="assets/kant.jpeg" alt="" loading="lazy" decoding="async"><strong>БФУ им. Канта</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-pnt"><img class="case-logo" src="assets/pnt.png" alt="" loading="lazy" decoding="async"><strong>ПНТ-Сервис</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-legenda"><img class="case-logo" src="assets/legenda.png" alt="" loading="lazy" decoding="async"><strong>Легенда</strong><span>Открыть кейс</span></a></li>
-      <li class="case-tile"><a class="case-open" href="#project-mozhaisky"><img class="case-logo" src="assets/mozhaisky.jpeg" alt="" loading="lazy" decoding="async"><strong>ВКА им. Можайского</strong><span>Открыть кейс</span></a></li>
-  </ul>
+  <h2 class="aij-heading" id="cases-title">Карусель проектов</h2>
+<div class="portfolio-brands portfolio-ribbons" aria-label="Компании портфеля проектов"><div class="portfolio-lane"><div class="portfolio-track"><div class="portfolio-group"><a class="portfolio-brand" href="#project-eirc" aria-label="Открыть проект: ЕИРЦ"><img class="portfolio-logo aij-logo-paper" src="assets/eirc.jpeg" alt="ЕИРЦ" loading="eager" decoding="async"><small>ЖКХ и сервис</small></a><a class="portfolio-brand" href="#project-peterhof" aria-label="Открыть проект: ГМЗ «Петергоф»"><img class="portfolio-logo aij-logo-transparent" src="assets/peterhof.png" alt="ГМЗ «Петергоф»" loading="eager" decoding="async"><small>Культура и наследие</small></a><a class="portfolio-brand" href="#project-element" aria-label="Открыть проект: Элемент"><img class="portfolio-logo aij-logo-transparent" src="assets/element.png" alt="Элемент" loading="eager" decoding="async"><small>Девелопмент и строительство</small></a><a class="portfolio-brand" href="#project-aks" aria-label="Открыть проект: АКС"><img class="portfolio-logo aij-logo-paper" src="assets/aks.jpeg" alt="АКС" loading="eager" decoding="async"><small>Питание и снабжение</small></a><a class="portfolio-brand" href="#project-vma" aria-label="Открыть проект: ВМА"><img class="portfolio-logo aij-logo-original" src="assets/vma.png" alt="ВМА" loading="eager" decoding="async"><small>Медицина и образование</small></a><a class="portfolio-brand" href="#project-obf" aria-label="Открыть проект: ОБФ"><img class="portfolio-logo aij-logo-paper" src="assets/obf.jpeg" alt="ОБФ" loading="eager" decoding="async"><small>Промышленность</small></a><a class="portfolio-brand" href="#project-vyborzhets" aria-label="Открыть проект: Выборжец"><img class="portfolio-logo aij-logo-paper" src="assets/vyborzhets.jpeg" alt="Выборжец" loading="eager" decoding="async"><small>Агропромышленность</small></a><a class="portfolio-brand" href="#project-pulkovo" aria-label="Открыть проект: Пулково"><img class="portfolio-logo aij-logo-transparent" src="assets/pulkovo.png" alt="Пулково" loading="eager" decoding="async"><small>Транспорт и логистика</small></a><a class="portfolio-brand" href="#project-yuzhny" aria-label="Открыть проект: Город-спутник Южный"><img class="portfolio-logo aij-logo-transparent" src="assets/yuzhny.png" alt="Город-спутник Южный" loading="eager" decoding="async"><small>Девелопмент и строительство</small></a></div><div class="portfolio-group" aria-hidden="true"><a class="portfolio-brand" tabindex="-1" href="#project-eirc" aria-label="Открыть проект: ЕИРЦ"><img class="portfolio-logo aij-logo-paper" src="assets/eirc.jpeg" alt="ЕИРЦ" loading="eager" decoding="async"><small>ЖКХ и сервис</small></a><a class="portfolio-brand" tabindex="-1" href="#project-peterhof" aria-label="Открыть проект: ГМЗ «Петергоф»"><img class="portfolio-logo aij-logo-transparent" src="assets/peterhof.png" alt="ГМЗ «Петергоф»" loading="eager" decoding="async"><small>Культура и наследие</small></a><a class="portfolio-brand" tabindex="-1" href="#project-element" aria-label="Открыть проект: Элемент"><img class="portfolio-logo aij-logo-transparent" src="assets/element.png" alt="Элемент" loading="eager" decoding="async"><small>Девелопмент и строительство</small></a><a class="portfolio-brand" tabindex="-1" href="#project-aks" aria-label="Открыть проект: АКС"><img class="portfolio-logo aij-logo-paper" src="assets/aks.jpeg" alt="АКС" loading="eager" decoding="async"><small>Питание и снабжение</small></a><a class="portfolio-brand" tabindex="-1" href="#project-vma" aria-label="Открыть проект: ВМА"><img class="portfolio-logo aij-logo-original" src="assets/vma.png" alt="ВМА" loading="eager" decoding="async"><small>Медицина и образование</small></a><a class="portfolio-brand" tabindex="-1" href="#project-obf" aria-label="Открыть проект: ОБФ"><img class="portfolio-logo aij-logo-paper" src="assets/obf.jpeg" alt="ОБФ" loading="eager" decoding="async"><small>Промышленность</small></a><a class="portfolio-brand" tabindex="-1" href="#project-vyborzhets" aria-label="Открыть проект: Выборжец"><img class="portfolio-logo aij-logo-paper" src="assets/vyborzhets.jpeg" alt="Выборжец" loading="eager" decoding="async"><small>Агропромышленность</small></a><a class="portfolio-brand" tabindex="-1" href="#project-pulkovo" aria-label="Открыть проект: Пулково"><img class="portfolio-logo aij-logo-transparent" src="assets/pulkovo.png" alt="Пулково" loading="eager" decoding="async"><small>Транспорт и логистика</small></a><a class="portfolio-brand" tabindex="-1" href="#project-yuzhny" aria-label="Открыть проект: Город-спутник Южный"><img class="portfolio-logo aij-logo-transparent" src="assets/yuzhny.png" alt="Город-спутник Южный" loading="eager" decoding="async"><small>Девелопмент и строительство</small></a></div></div></div><div class="portfolio-lane portfolio-lane-reverse"><div class="portfolio-track"><div class="portfolio-group"><a class="portfolio-brand" href="#project-innospector" aria-label="Открыть проект: Инноспектор"><span class="wordmark aij-wordmark">Инноспектор</span><small>Промышленность</small></a><a class="portfolio-brand" href="#project-dodo" aria-label="Открыть проект: Додо"><img class="portfolio-logo aij-logo-paper" src="assets/dodo.jpeg" alt="Додо" loading="eager" decoding="async"><small>Питание и снабжение</small></a><a class="portfolio-brand" href="#project-ati" aria-label="Открыть проект: ATI.SU"><img class="portfolio-logo aij-logo-paper" src="assets/ati.png" alt="ATI.SU" loading="eager" decoding="async"><small>Транспорт и логистика</small></a><a class="portfolio-brand" href="#project-grunwald" aria-label="Открыть проект: Грюнвальд"><img class="portfolio-logo aij-logo-paper" src="assets/grunwald.png" alt="Грюнвальд" loading="eager" decoding="async"><small>Промышленность</small></a><a class="portfolio-brand" href="#project-hrlink" aria-label="Открыть проект: HRlink"><img class="portfolio-logo aij-logo-paper" src="assets/hrlink.png" alt="HRlink" loading="eager" decoding="async"><small>HR и документооборот</small></a><a class="portfolio-brand" href="#project-kant" aria-label="Открыть проект: БФУ им. Канта"><img class="portfolio-logo aij-logo-original" src="assets/kant.jpeg" alt="БФУ им. Канта" loading="eager" decoding="async"><small>Медицина и образование</small></a><a class="portfolio-brand" href="#project-pnt" aria-label="Открыть проект: ПНТ-Сервис"><img class="portfolio-logo aij-logo-paper" src="assets/pnt.png" alt="ПНТ-Сервис" loading="eager" decoding="async"><small>Финансы и документооборот</small></a><a class="portfolio-brand" href="#project-legenda" aria-label="Открыть проект: Легенда"><img class="portfolio-logo aij-logo-transparent" src="assets/legenda.png" alt="Легенда" loading="eager" decoding="async"><small>Девелопмент и строительство</small></a><a class="portfolio-brand" href="#project-mozhaisky" aria-label="Открыть проект: ВКА им. Можайского"><img class="portfolio-logo aij-logo-original" src="assets/mozhaisky.jpeg" alt="ВКА им. Можайского" loading="eager" decoding="async"><small>Промышленность и образование</small></a></div><div class="portfolio-group" aria-hidden="true"><a class="portfolio-brand" tabindex="-1" href="#project-innospector" aria-label="Открыть проект: Инноспектор"><span class="wordmark aij-wordmark">Инноспектор</span><small>Промышленность</small></a><a class="portfolio-brand" tabindex="-1" href="#project-dodo" aria-label="Открыть проект: Додо"><img class="portfolio-logo aij-logo-paper" src="assets/dodo.jpeg" alt="Додо" loading="eager" decoding="async"><small>Питание и снабжение</small></a><a class="portfolio-brand" tabindex="-1" href="#project-ati" aria-label="Открыть проект: ATI.SU"><img class="portfolio-logo aij-logo-paper" src="assets/ati.png" alt="ATI.SU" loading="eager" decoding="async"><small>Транспорт и логистика</small></a><a class="portfolio-brand" tabindex="-1" href="#project-grunwald" aria-label="Открыть проект: Грюнвальд"><img class="portfolio-logo aij-logo-paper" src="assets/grunwald.png" alt="Грюнвальд" loading="eager" decoding="async"><small>Промышленность</small></a><a class="portfolio-brand" tabindex="-1" href="#project-hrlink" aria-label="Открыть проект: HRlink"><img class="portfolio-logo aij-logo-paper" src="assets/hrlink.png" alt="HRlink" loading="eager" decoding="async"><small>HR и документооборот</small></a><a class="portfolio-brand" tabindex="-1" href="#project-kant" aria-label="Открыть проект: БФУ им. Канта"><img class="portfolio-logo aij-logo-original" src="assets/kant.jpeg" alt="БФУ им. Канта" loading="eager" decoding="async"><small>Медицина и образование</small></a><a class="portfolio-brand" tabindex="-1" href="#project-pnt" aria-label="Открыть проект: ПНТ-Сервис"><img class="portfolio-logo aij-logo-paper" src="assets/pnt.png" alt="ПНТ-Сервис" loading="eager" decoding="async"><small>Финансы и документооборот</small></a><a class="portfolio-brand" tabindex="-1" href="#project-legenda" aria-label="Открыть проект: Легенда"><img class="portfolio-logo aij-logo-transparent" src="assets/legenda.png" alt="Легенда" loading="eager" decoding="async"><small>Девелопмент и строительство</small></a><a class="portfolio-brand" tabindex="-1" href="#project-mozhaisky" aria-label="Открыть проект: ВКА им. Можайского"><img class="portfolio-logo aij-logo-original" src="assets/mozhaisky.jpeg" alt="ВКА им. Можайского" loading="eager" decoding="async"><small>Промышленность и образование</small></a></div></div></div></div>
   <a class="aij-text-link" href="#clients">Все описания проектов</a>
 </section>
 <section class="section wrap" id="panel" aria-labelledby="panel-title">
@@ -1469,7 +1418,7 @@ tocClose.addEventListener('click',()=>closeContents());
 document.getElementById('dock-open-contents').addEventListener('click',e=>{lastTocTrigger=e.currentTarget;openReportDialog(toc);tocClose.focus()});
 toc.addEventListener('click',e=>{if(e.target===toc){const b=toc.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)closeContents()}});
 function navigateChapter(id){const target=document.getElementById(id);if(!target)return;if(toc.open)closeContents(false);if(target.matches('details')){resetProjectFilters();target.open=true;}try{history.replaceState(null,'','#'+id)}catch{}requestAnimationFrame(()=>target.scrollIntoView({behavior:(reducedMotion||matchMedia('(max-width:800px),(pointer:coarse)').matches)?'instant':'smooth',block:'start'}))}
-document.querySelectorAll('.toc-link,.case-open,.signing-list a,.text-project-link,.a2a-cases a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();navigateChapter(a.hash.slice(1))}));
+document.querySelectorAll('.toc-link,.portfolio-brand,.signing-list a,.text-project-link,.a2a-cases a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();navigateChapter(a.hash.slice(1))}));
 chapterData.forEach((chapter,i)=>{
  if(chapter.id==='results')return;
  const next=chapterData[i+1];const link=document.createElement('a');link.className='chapter-next';link.href=next?'#'+next.id:'#top';link.setAttribute('aria-label',next?'Следующий раздел: '+next.label:'Вернуться к началу');
@@ -1559,29 +1508,4 @@ let projectPrintVisibility=[];
 addEventListener('beforeprint',()=>{projectPrintVisibility=clientDetails.map(d=>[d,d.hidden]);clientDetails.forEach(d=>d.hidden=false)});
 addEventListener('afterprint',()=>{projectPrintVisibility.forEach(([d,hidden])=>d.hidden=hidden);projectPrintVisibility=[]});
 if(location.hash.startsWith('#project-')){const target=document.getElementById(location.hash.slice(1));if(target){target.open=true;requestAnimationFrame(()=>target.scrollIntoView())}}
-
-const caseTrack = document.getElementById('case-track');
-const caseControls = document.querySelector('.case-controls');
-const previousCases = caseControls.querySelector('[data-case-step="-1"]');
-const nextCases = caseControls.querySelector('[data-case-step="1"]');
-caseControls.hidden = false;
-
-function updateCaseControls() {
-  previousCases.disabled = caseTrack.scrollLeft <= 1;
-  nextCases.disabled = caseTrack.scrollLeft >= caseTrack.scrollWidth - caseTrack.clientWidth - 1;
-}
-
-caseControls.addEventListener('click', event => {
-  const button = event.target.closest('[data-case-step]');
-  if (!button) return;
-  const tileWidth = caseTrack.children[1].offsetLeft - caseTrack.children[0].offsetLeft;
-  const visibleTiles = Math.max(1, Math.floor(caseTrack.clientWidth / tileWidth));
-  caseTrack.scrollBy({
-    left: Number(button.dataset.caseStep) * tileWidth * visibleTiles,
-    behavior: reducedMotion ? 'instant' : 'smooth'
-  });
-});
-caseTrack.addEventListener('scroll', updateCaseControls, {passive: true});
-addEventListener('resize', updateCaseControls);
-updateCaseControls();
 </script></body></html>
